@@ -1,15 +1,7 @@
-class miClase {
-    constructor(primero, segundo){
-        this.uno = primero;
-        this.dos = segundo;
-};
+var nombre = "Sergio" , edad = 25;
 
-    miMetodoUno(){
-        var a = 50;
-        var b = 44;
-        var c = a + b;
-        return c;
-    }
-
-
-};
+i(edad == 18){
+    document.write("Bienvenido, Tienes 18");
+} else if (nombre = "arturo") {
+    document.write("Bienvenido" + nombre)
+}
