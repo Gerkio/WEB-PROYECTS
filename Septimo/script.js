@@ -41,6 +41,9 @@
             };
             
             pHoras.textContent = horas;
+
+            if (mins < 10){minutos = "0" + mins};
+
             pMins.textContent = mins;
             pAmpm.textContent = ampm;
     };
