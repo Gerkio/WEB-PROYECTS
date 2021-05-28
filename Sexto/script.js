@@ -12,7 +12,7 @@
 			contenido = document.createTextNode(tarea);
 
 		if (tarea === "") {
-			tareaInput.setAttribute("placeholder", "Agrega una tarea valida");
+			tareaInput.setAttribute("placeholder", "No agregaste ninguna tarea");
 			tareaInput.className = "error";
 			return false;
 		}
