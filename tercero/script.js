@@ -1,9 +1,7 @@
 var nombre = "Sergio" , edad = 25;
 
-i(edad == 18){
-    document.write("Bienvenido, Tienes 18");
-} else if (nombre = "arturo") {
-    document.write("Bienvenido" + nombre);
+if ( edad >= 18 ){
+    document.write("bienvenido, eres mayor de edad");
 } else {
-    document.write("No tienes 18 años");
+    document.write("No eres ,ayor de edad");
 }
