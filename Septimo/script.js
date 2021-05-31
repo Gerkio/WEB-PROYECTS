@@ -42,7 +42,7 @@
             
             pHoras.textContent = horas;
 
-            if (mins < 10){minutos = "0" + mins};
+            if (mins < 10){mins = "0" + mins};
 
             pMins.textContent = mins;
             pAmpm.textContent = ampm;
@@ -51,4 +51,5 @@
 
 
     actualizarHora();
+    var intervalo = setInterval(actualizarHora , 1000);
 }())
