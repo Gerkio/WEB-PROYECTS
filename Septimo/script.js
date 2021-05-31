@@ -1,30 +1,30 @@
 (function(){
 
-    var actualizarHora = function(){
-            var fecha = new Date();
-            var horas = fecha.getHours();
-            var ampm;
-            var mins = fecha.getMinutes();
-            var diaSemana = fecha.getDay();
-            var dia = fecha.getDate();
-            var mes = fecha.getMonth();
-            var year = fecha.getFullYear();
+    let actualizarHora = function(){
+            let fecha = new Date();
+            let horas = fecha.getHours();
+            let ampm;
+            let mins = fecha.getMinutes();
+            let diaSemana = fecha.getDay();
+            let dia = fecha.getDate();
+            let mes = fecha.getMonth();
+            let year = fecha.getFullYear();
 
 
-            var pHoras = document.getElementById("horas");
-            var pAmpm = document.getElementById("ampm");
-            var pMins = document.getElementById("mins");
-            var pDiaSemana = document.getElementById("diaSemana");
-            var pDia = document.getElementById("dia");
-            var pMes = document.getElementById("mes");
-            var pYear = document.getElementById("year");
+            let pHoras = document.getElementById("horas");
+            let pAmpm = document.getElementById("ampm");
+            let pMins = document.getElementById("mins");
+            let pDiaSemana = document.getElementById("diaSemana");
+            let pDia = document.getElementById("dia");
+            let pMes = document.getElementById("mes");
+            let pYear = document.getElementById("year");
 
-            var semana = ["domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+            let semana = ["domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
             pDiaSemana.textContent = semana [diaSemana];
 
             pDia.textContent = dia;
 
-            var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
             pMes.textContent = meses[mes];
 
@@ -51,5 +51,5 @@
 
 
     actualizarHora();
-    var intervalo = setInterval(actualizarHora , 1000);
+    let intervalo = setInterval(actualizarHora , 1000);
 }())
