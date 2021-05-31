@@ -53,7 +53,7 @@
     };
 
 
-
+    //se crea un intervalo cada segundo para que el reloj corra a tiempo real
     actualizarHora();
     let intervalo = setInterval(actualizarHora , 1000);
 }())
