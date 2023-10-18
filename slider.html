@@ -1,0 +1,73 @@
+<!-- Contenedor del slider -->
+<div id="slider" style="width: 85vw; max-height: 550px; overflow: hidden; position: relative; margin: 0 auto;">
+
+    <!-- Imágenes del slider -->
+    <div id="images" style="width: calc(30% * 6); display: flex; transition: transform 0.5s ease-in-out;">
+      <!-- Cada imagen tiene un ancho del 30% del contenedor y un alto proporcional -->
+      <!-- Cada imagen tiene la propiedad object-fit con el valor fill para que se vea completa dentro del slide al 100% -->
+      <!-- Cada imagen tiene un atributo onmouseover que aumenta el tamaño de la imagen un 5% mediante efecto hover -->
+      <!-- Cada imagen tiene un atributo onmouseout que restaura el tamaño original de la imagen -->
+      <img src="https://i.ibb.co/3YbFwLs/OIG-8.jpg" alt="OIG-8" style="width: 16.67%; height: auto; object-fit: fill; margin-right: 2px;" onmouseover="this.style.transform = 'scale(1.05)'" onmouseout="this.style.transform = 'scale(1)'">
+      <img src="https://i.ibb.co/DwDvY1P/OIG-7.jpg" alt="OIG-7" style="width: 16.67%; height: auto; object-fit: fill; margin-right: 2px;" onmouseover="this.style.transform = 'scale(1.05)'" onmouseout="this.style.transform = 'scale(1)'">
+      <img src="https://i.ibb.co/WybMJqt/OIG-nd-OEcd2yglp-Pjk7.jpg" alt="OIG-nd-OEcd2yglp-Pjk7" style="width: 16.67%; height: auto; object-fit: fill; margin-right: 2px;" onmouseover="this.style.transform = 'scale(1.05)'" onmouseout="this.style.transform = 'scale(1)'">
+      <img src="https://i.ibb.co/zFdwfk1/OIG-5.jpg" alt="OIG-5" style="width: 16.67%; height: auto; object-fit: fill; margin-right: 2px;" onmouseover="this.style.transform = 'scale(1.05)'" onmouseout="this.style.transform = 'scale(1)'">
+      <img src="https://i.ibb.co/Y8WkPdb/OIG-4.jpg" alt="OIG-4" style="width: 16.67%; height: auto; object-fit: fill; margin-right: 2px;" onmouseover="this.style.transform = 'scale(1.05)'" onmouseout="this.style.transform = 'scale(1)'">
+      <img src="https://i.ibb.co/cCGJK9n/fddeebd7-c54f-4179-9a87-13e4fb2143fd.jpg" alt="OIG-6" style="width: 16.67%; height: auto; object-fit: fill;" onmouseover="this.style.transform = 'scale(1.05)'" onmouseout="this.style.transform = 'scale(1)'">
+    </div>
+  
+    <!-- Flechas del slider -->
+    <div id="arrows" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; display: flex; justify-content: space-between; align-items: center;">
+      <!-- Cada flecha tiene un atributo onclick que llama a una función para mover el slider -->
+      <div id="left-arrow" style="width: 50px; height: 50px; background-image: url('https://i.ibb.co/Bf0t2M3/atras.png'); background-size: cover; cursor: pointer;" onclick="moveSlider('left')"></div>
+      <div id="right-arrow" style="width: 50px; height: 50px; background-image: url('https://i.ibb.co/zS1jZZb/adelante.png'); background-size: cover; cursor: pointer;" onclick="moveSlider('right')"></div>
+    </div>
+  
+  </div>
+  
+  <!-- Script para el funcionamiento del slider -->
+  <script>
+  // Variable para almacenar el índice de la imagen actual
+  let index = 0;
+  
+  // Variable para almacenar el número de imágenes
+  let numImages = document.getElementById("images").childElementCount;
+  
+  // Variable para almacenar el ancho de cada imagen
+  let imageWidth = document.getElementById("images").firstElementChild.offsetWidth;
+  
+  // Función para mover el slider según la dirección indicada
+  function moveSlider(direction) {
+    // Si la dirección es izquierda, se resta uno al índice
+    if (direction === "left") {
+      index--;
+    }
+    // Si la dirección es derecha, se suma uno al índice
+    else if (direction === "right") {
+      index++;
+    }
+    // Si el índice es menor que cero, se asigna el último índice
+    if (index < 0) {
+      index = numImages - 1;
+    }
+    // Si el índice es mayor que el último índice, se asigna cero
+    if (index > numImages - 1) {
+      index = 0;
+    }
+    // Se calcula el desplazamiento del slider según el índice y el ancho de la imagen
+    let offset = -index * imageWidth;
+    // Se aplica el desplazamiento al slider usando la propiedad transform
+    document.getElementById("images").style.transform = `translateX(${offset}px)`;
+  }
+  
+  // Función para mover el slider automáticamente cada tres segundos
+  function autoMoveSlider() {
+    // Se llama a la función moveSlider con la dirección derecha
+    moveSlider("right");
+    // Se usa setTimeout para repetir la función cada cinco segundos
+    setTimeout(autoMoveSlider, 5000);
+  }
+  
+  // Se llama a la función autoMoveSlider cuando se carga la página
+  window.onload = autoMoveSlider;
+  </script>
+  
